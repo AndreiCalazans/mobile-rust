@@ -4,8 +4,9 @@
 
 # Auto-generated FFI bindings — regenerated on every build, never committed
 /generated/
-**/generated/uniffi/
+**/generated/
 iosApp/**/Generated/
+spike/generated/
 
 # macOS / editor
 .DS_Store
