@@ -53,6 +53,8 @@ rust/                 the whole app — logic only
 
 androidApp/           Jetpack Compose, consumes generated uniffi.app_core
 iosApp/               SwiftUI, consumes generated app_core module
+  Project.swift         Tuist manifest (links XCFramework, runs build-ios.sh)
+  Makefile              make setup / open — builds Rust then tuist generate
 
 spike/                the earlier bridge-generation spike (see spike/CONSUMPTION.md)
 docs/                 feasibility write-up
@@ -76,8 +78,11 @@ Then the native build systems invoke the Rust build automatically:
 
 - **Android** — the `:app` Gradle module runs `rust/build-android.sh` before
   Kotlin compilation (see `androidApp/app/build.gradle.kts`).
-- **iOS** — add `rust/build-ios.sh` as a Run Script build phase before
-  "Compile Sources", and link `iosApp/Generated/AppCore.xcframework`.
+- **iOS** — Tuist generates the Xcode project. `iosApp/Project.swift` links
+  `Generated/AppCore.xcframework` and compiles `Generated/swift/**`, and runs
+  `build-ios.sh` as a pre-build script. Because Tuist validates paths at
+  generation time, run `make setup` (in `iosApp/`) the first time: it builds the
+  Rust artifacts, then runs `tuist generate`. After that, `make open`.
 
 To run the logic without a device:
 

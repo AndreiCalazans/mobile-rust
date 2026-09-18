@@ -21,6 +21,13 @@ xcuserdata/
 DerivedData/
 .build/
 
+# Tuist
+iosApp/*.xcodeproj
+iosApp/*.xcworkspace
+iosApp/.tuist-version
+**/Derived/
+**/.tuist/
+
 # macOS / editor
 .DS_Store
 *.swp
