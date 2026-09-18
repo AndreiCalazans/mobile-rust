@@ -1,12 +1,25 @@
 # Rust build output
-/rust/target/
 **/target/
 
 # Auto-generated FFI bindings — regenerated on every build, never committed
 /generated/
 **/generated/
-iosApp/**/Generated/
+rust/generated/
 spike/generated/
+androidApp/**/jniLibs/
+iosApp/Generated/
+
+# Android build
+.gradle/
+**/build/
+local.properties
+*.iml
+
+# Xcode / iOS build
+*.xcuserstate
+xcuserdata/
+DerivedData/
+.build/
 
 # macOS / editor
 .DS_Store
