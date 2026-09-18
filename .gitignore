@@ -1,0 +1,12 @@
+# Rust build output
+/rust/target/
+**/target/
+
+# Auto-generated FFI bindings — regenerated on every build, never committed
+/generated/
+**/generated/uniffi/
+iosApp/**/Generated/
+
+# macOS / editor
+.DS_Store
+*.swp
