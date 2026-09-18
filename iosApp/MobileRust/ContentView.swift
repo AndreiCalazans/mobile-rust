@@ -1,7 +1,7 @@
 import SwiftUI
-// `app_core` is the module produced by the generated Swift + the XCFramework
-// (both gitignored, built by ../rust/build-ios.sh).
-import app_core
+// The UniFFI-generated Swift wrapper (Generated/swift/**) is compiled directly
+// into this target, so its types (AppCore, SessionState, ...) are in scope with
+// no import. It links the C module app_coreFFI from the xcframework internally.
 
 // The view model owns the single Rust AppCore. All logic is in Rust; this only
 // dispatches intents and projects state.
